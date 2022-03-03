@@ -32,5 +32,10 @@ describe('Traveler', function() {
         expect(destination1).to.be.an.instanceOf(Destination);
     });
 
+    it('should have a destination id', () => {
+        expect(destination1.id).to.eql(1)
+        expect(destination2.id).to.eql(2)
+    })
 
+    
 })
