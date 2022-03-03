@@ -52,4 +52,7 @@ describe('Traveler', function() {
         expect(destination2.estimatedLodgingCostPerDay).to.eql(780);
     });
 
+    it('should have an image contained in a URL', () => {
+        expect(destination1.image).to.eql("https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80");
+    })
 })
