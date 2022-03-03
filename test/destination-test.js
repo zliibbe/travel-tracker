@@ -25,7 +25,7 @@ describe('Traveler', function() {
       });
 
     it('should be a function', () => {
-        expect(Destination).to.be.a('function')
+        expect(Destination).to.be.a('function');
     })
 
     it('should instantiate Destination', () => {
@@ -33,22 +33,23 @@ describe('Traveler', function() {
     });
 
     it('should have a destination id', () => {
-        expect(destination1.id).to.eql(1)
-        expect(destination2.id).to.eql(2)
+        expect(destination1.id).to.eql(1);
+        expect(destination2.id).to.eql(2);
     })
 
     it('should have an destination', () => {
-        expect(destination1.id).to.eql("Lima, Peru")
-        expect(destination2.id).to.eql("Stockholm, Sweden")
+        expect(destination1.id).to.eql("Lima, Peru");
+        expect(destination2.id).to.eql("Stockholm, Sweden");
     })
 
-    it('should have an estimated lodging cost per day', () => {
-        expect(destination1.estimatedLodgingCostPerDay).to.eql(70)
-        expect(destination2.estimatedLodgingCostPerDay).to.eql(100)
+    it('should have an estimated lodging cost per day in dollars', () => {
+        expect(destination1.estimatedLodgingCostPerDay).to.eql(70);
+        expect(destination2.estimatedLodgingCostPerDay).to.eql(100);
     });
 
-    it('should ', () => {
-        expect(destination1.id).to.eql(1)
+    it('should estimate flight cost per person in dollars', () => {
+        expect(destination1.estimatedLodgingCostPerDay).to.eql(400);
+        expect(destination2.estimatedLodgingCostPerDay).to.eql(780);
     });
 
 })
