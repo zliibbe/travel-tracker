@@ -6,6 +6,7 @@ import {fetchDataFor} from './apiCalls'
 import Traveler from './traveler'
 
 //variable initiation
+let user
 let traveler
 let travelers
 let destinations
@@ -20,18 +21,18 @@ const getAllData = () => {
                         fetchDataFor('destinations'), 
                         fetchDataFor('trips')])
     .then(data => {
-        travelers = data[0];
-        destinations = data[1];
-        trips = data[2];
-        console.log(travelers, "<traveleres")
+        travelers = data[0].travelers;
+        destinations = data[1].destinations;
+        trips = data[2].trips;
+        user = getByID(travelers, '1')
+        console.log(user, "<<USER")
     })
 }
 
 const getByID = (travelers, id) => {
-    return travelers.find(user => {
-        if (id === user.id) {
-            console.log(user)
-            return user
+    return travelers.find(traveler => {
+        if (parseInt(id) === traveler.id) {
+            return traveler
         }
     })
 }
