@@ -11,19 +11,27 @@ class Traveler {
         return fullName[0]
     }
     
-    getTrips(trips, travelerID) {
+    getTrips(travelerID, trips) {
         return trips = trips.reduce((acc, trip) =>{
             if (trip.userID === travelerID){
-                console.log(trip, "inside IF")
                 acc.push(trip)
             }
             return acc
         }, [])
     }
 
-    // getDestinations(travelerID) {
-
-    // }
+    getDestinations(travelerID, tripHx, destinations) {
+        return tripHx.reduce((acc, trip) => {
+            if (trip.userID === travelerID){
+                destinations.filter(destination =>{
+                    if (trip.destinationID === destination.id){
+                        acc.push(destination)
+                    }
+                })
+            }
+            return acc
+        }, []) 
+    }
 }
 
 export default Traveler;
