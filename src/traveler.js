@@ -20,9 +20,9 @@ class Traveler {
         }, [])
     }
 
-    getDestinations(travelerID, tripHx, destinations) {
+    getDestinations(tripHx, destinations) {
         return tripHx.reduce((acc, trip) => {
-            if (trip.userID === travelerID){
+            if (trip.userID === this.id){
                 destinations.filter(destination =>{
                     if (trip.destinationID === destination.id){
                         acc.push(destination)
@@ -32,6 +32,9 @@ class Traveler {
             return acc
         }, []) 
     }
-}
 
+    annualSpending() {
+        
+    }
+}
 export default Traveler;
