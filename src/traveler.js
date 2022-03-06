@@ -1,3 +1,5 @@
+import Trip from './trip';
+import Destination from './destination';
 class Traveler {
     constructor(traveler) {
         this.id = traveler.id
@@ -11,21 +13,21 @@ class Traveler {
         return fullName[0]
     }
     
-    getTrips(travelerID, trips) {
-        return trips = trips.reduce((acc, trip) =>{
-            if (trip.userID === travelerID){
-                acc.push(trip)
+    getUsersTrips(tripData) {
+        return tripData.reduce((acc, trip) =>{
+            if (trip.userID === this.id){
+                acc.push(new Trip(trip))
             }
             return acc
         }, [])
     }
 
-    getDestinations(tripHx, destinations) {
-        return tripHx.reduce((acc, trip) => {
+    getUsersDestinations(destinationData) {
+        return this.trips.reduce((acc, trip) => {
             if (trip.userID === this.id){
-                destinations.filter(destination =>{
-                    if (trip.destinationID === destination.id){
-                        acc.push(destination)
+                destinationData.filter(place =>{
+                    if (trip.destinationID === place.id){
+                        acc.push(new Destination(place))
                     }
                 })
             }
@@ -33,8 +35,6 @@ class Traveler {
         }, []) 
     }
 
-    annualSpending() {
-        
-    }
+    
 }
 export default Traveler;
