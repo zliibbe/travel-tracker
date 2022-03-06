@@ -7,6 +7,8 @@ import Traveler from './traveler'
 import Trip from './trip'
 import Destination from './destination';
 import domUpdates from './domUpdates';
+import dayjs from 'dayjs'
+
 
 //variable initiation
 let user
@@ -17,6 +19,8 @@ let userDestinations
 
 //querySelectors
 const tripList = document.querySelector('.trip-list')
+const greeting = document.querySelector('.greeting')
+const annualSpending = document.querySelector('.annual-expenditure')
 
 
 // function declaration
@@ -28,14 +32,17 @@ const getAllData = () => {
         travelers = data[0].travelers;
         destinations = data[1].destinations;
         trips = data[2].trips;
-        user = new Traveler(getByID(travelers, '1'))
-        user.trips = user.getTrips(user.id, trips)
-        userDestinations = user.getDestinations(user.trips, destinations)
-        console.log(userDestinations)//<instantiate destination class with this data
-        // PSEUDO: display each destination on page
-        // NEED HTML structure to do that... |Do that and come back to here...
-        // ...THEN build out annualSpending in Traveler Class
-    })
+        user = new Traveler(getByID(travelers, '14'))
+        user.trips = user.getUsersTrips(trips)//instantiate Trip class in traveler.js
+        console.log(user.trips, "<<<user.trips")
+        userDestinations = user.getUsersDestinations(destinations)//instantiate Dest class in traveler.js
+        console.log(userDestinations, "<<<userDestinations")
+        // console.log(dayjs().format("MMMM DD, YYYY"), "<<dayjs")
+        user.trips.forEach(trip => {
+            
+        })
+        
+    })//.then(updateDOM())
 }
 
 const getByID = (travelers, id) => {
@@ -46,6 +53,9 @@ const getByID = (travelers, id) => {
     })
 }
 
+const updateDOM = () => {
+    domUpdates.userGreeting()
+}
 
 //eventListeners 
 window.addEventListener('load', getAllData());
