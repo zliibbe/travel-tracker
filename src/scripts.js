@@ -4,15 +4,19 @@ import './images/turing-logo.png'
 import './images/favicon.png'
 import {fetchDataFor} from './apiCalls'
 import Traveler from './traveler'
+import Trip from './trip'
+import Destination from './destination';
+import domUpdates from './domUpdates';
 
 //variable initiation
 let user
-let traveler
 let travelers
 let destinations
 let trips
+let userDestinations
 
 //querySelectors
+const tripList = document.querySelector('.trip-list')
 
 
 // function declaration
@@ -24,8 +28,13 @@ const getAllData = () => {
         travelers = data[0].travelers;
         destinations = data[1].destinations;
         trips = data[2].trips;
-        user = getByID(travelers, '1')
-        console.log(user, "<<USER")
+        user = new Traveler(getByID(travelers, '1'))
+        user.trips = user.getTrips(user.id, trips)
+        userDestinations = user.getDestinations(user.trips, destinations)
+        console.log(userDestinations)//<instantiate destination class with this data
+        // PSEUDO: display each destination on page
+        // NEED HTML structure to do that... |Do that and come back to here...
+        // ...THEN build out annualSpending in Traveler Class
     })
 }
 
@@ -37,9 +46,6 @@ const getByID = (travelers, id) => {
     })
 }
 
-const getTrips = (trips) => {
-    // live on traveler??
-}
 
 //eventListeners 
 window.addEventListener('load', getAllData());
