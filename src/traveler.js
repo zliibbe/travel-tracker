@@ -13,12 +13,11 @@ class Traveler {
         let fullName = this.name.split(' ')
         return fullName[0]
     }
-    //use this to get array of Trips
+
     getUsersTrips(tripsData, destinationsData) {
         return tripsData.reduce((acc, trip) =>{
             if (trip.userID === this.id){
                 acc.push(new Trip(trip, destinationsData))
-                // console.log(trip, "<<<trip from getUsersTrip in traveler.js")
             }
             return acc
         }, [])
