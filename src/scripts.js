@@ -1,7 +1,7 @@
 import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
-import './images/favicon.png'
+// import './images/profilepic'
+// import './images/favicon'
 import {fetchDataFor} from './apiCalls'
 import Traveler from './traveler'
 import Trip from './trip'
@@ -9,19 +9,13 @@ import Destination from './destination';
 import domUpdates from './domUpdates';
 import dayjs from 'dayjs'
 
-
 //variable initiation
 let user
-let travelers
-let destinations
-let trips
+let travelersData
+let destinationsData
+let tripsData
 let userDestinations
-
-//querySelectors
-const tripList = document.querySelector('.trip-list')
-const greeting = document.querySelector('.greeting')
-const annualSpending = document.querySelector('.annual-expenditure')
-
+let theUser
 
 // function declaration
 const getAllData = () => {
@@ -29,20 +23,22 @@ const getAllData = () => {
                         fetchDataFor('destinations'), 
                         fetchDataFor('trips')])
     .then(data => {
-        travelers = data[0].travelers;
-        destinations = data[1].destinations;
-        trips = data[2].trips;
-        user = new Traveler(getByID(travelers, '14'))
-        user.trips = user.getUsersTrips(trips)//instantiate Trip class in traveler.js
-        console.log(user.trips, "<<<user.trips")
-        userDestinations = user.getUsersDestinations(destinations)//instantiate Dest class in traveler.js
-        console.log(userDestinations, "<<<userDestinations")
+        travelersData = data[0].travelers;
+        destinationsData = data[1].destinations;
+        tripsData = data[2].trips;
+        user = new Traveler(getByID(travelersData, '14'))
+        user.trips = user.getUsersTrips(tripsData, destinationsData)//instantiate Trip class in traveler.js
+        // console.log(user.trips, "<<<user.trips")
+        userDestinations = user.getUsersDestinations(destinationsData)//instantiate Dest class in traveler.js
+        // console.log(userDestinations, "<<<userDestinations")
         // console.log(dayjs().format("MMMM DD, YYYY"), "<<dayjs")
-        user.trips.forEach(trip => {
-            
-        })
+        // console.log(user.trips, "user.trips line41 scripts")
+        // console.log(user.annualSpent(), "<?<< annualSpent")
         
-    })//.then(updateDOM())
+    }).then(() =>{
+        // console.log(user, "<<in 2nd .then()")
+        updateDOM(user, user.trips, userDestinations)
+    })
 }
 
 const getByID = (travelers, id) => {
@@ -53,8 +49,12 @@ const getByID = (travelers, id) => {
     })
 }
 
-const updateDOM = () => {
-    domUpdates.userGreeting()
+
+
+const updateDOM = (userData, tripsData, destinationsData) => {
+    domUpdates.userGreeting(userData)
+    domUpdates.displayAnnualSpending(userData)
+    domUpdates.displayTrips(userData, tripsData, destinationsData)
 }
 
 //eventListeners 
