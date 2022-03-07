@@ -2,17 +2,17 @@ import dayjs from 'dayjs'
 
 //querySelectors
 const tripList = document.querySelector('.trip-list')
-const greeting = document.querySelector('.greeting')
-const annualSpending = document.querySelector('.annual-expenditure')
+
 
 const domUpdates = {
-    userGreeting(user) {
-        let theUser = user.getFirstName()
-        greeting.innerText = `Welcome back, ${theUser}!`
+    userGreeting(firstName) {
+        const greeting = document.querySelector('.greeting')
+        greeting.innerText = `Welcome back, ${firstName}!`
     },
 
-    displayAnnualSpending(user) {
-        annualSpending.innerText = `You've spent ${user.annualSpent()} in ${dayjs().format('YYYY')}`
+    displayAnnualSpending(userAnnualSpending) {
+        const annualSpending = document.querySelector('.annual-expenditure')
+        annualSpending.innerText = `You've spent ${userAnnualSpending} in ${dayjs().format('YYYY')}`
     },
 
     displayTrips(traveler, tripsData, destinationsData) {
