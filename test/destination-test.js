@@ -29,39 +29,35 @@ describe('Destination', function() {
         destination2 = new Destination(destinationData2)
       });
 
-    it.skip('should be a function', () => {
+    it('should be a function', () => {
         expect(Destination).to.be.a('function');
     })
 
-    it.skip('should instantiate Destination', () => {
+    it('should instantiate Destination', () => {
         expect(destination1).to.be.an.instanceOf(Destination);
     });
 
-    it.skip('should have a destination id', () => {
+    it('should have a destination id', () => {
         expect(destination1.id).to.eql(1);
-        expect(destination2.id).to.eql(2);
     })
 
-    it.skip('should have an destination', () => {
-        expect(destination1.id).to.eql("Lima, Peru");
-        expect(destination2.id).to.eql("Stockholm, Sweden");
+    it('should have an destination', () => {
+        expect(destination1.destination).to.eql("Lima, Peru");
     })
 
-    it.skip('should have an estimated lodging cost per day in dollars', () => {
+    it('should have an estimated lodging cost per day in dollars', () => {
         expect(destination1.estimatedLodgingCostPerDay).to.eql(70);
-        expect(destination2.estimatedLodgingCostPerDay).to.eql(100);
     });
 
-    it.skip('should estimate flight cost per person in dollars', () => {
-        expect(destination1.estimatedLodgingCostPerDay).to.eql(400);
-        expect(destination2.estimatedLodgingCostPerDay).to.eql(780);
+    it('should estimate flight cost per person in dollars', () => {
+        expect(destination1.estimatedFlightCostPerPerson).to.eql(400);
     });
 
-    it.skip('should have an image contained in a URL', () => {
+    it('should have an image contained in a URL', () => {
         expect(destination1.image).to.eql("https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80");
     })
 
-    it.skip('should have an alt tag for image', () => {
-        expect(destination1.alt).to.eql("city with boats on the water during the day time");
+    it('should have an alt tag for image', () => {
+        expect(destination1.alt).to.eql("overview of city buildings with a clear sky");
     })
 })
