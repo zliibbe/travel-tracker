@@ -12,7 +12,7 @@ class Trip {
         this.cost = this.costOfTrip(destinationsData)
     }
 
-    findDestination = (destinationsData) => {
+    findDestination(destinationsData) {
         // console.log(destinationsData, "destinationsData###")
         // console.log(destinationsData, "DestData(in trip.js)")
         return destinationsData.find(destination => destination.id === this.destinationID)
