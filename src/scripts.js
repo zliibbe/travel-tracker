@@ -15,7 +15,6 @@ let travelersData
 let destinationsData
 let tripsData
 let userDestinations
-let theUser
 
 // function declaration
 const getAllData = () => {
@@ -28,15 +27,8 @@ const getAllData = () => {
         tripsData = data[2].trips;
         user = new Traveler(getByID(travelersData, '14'))
         user.trips = user.getUsersTrips(tripsData, destinationsData)//instantiate Trip class in traveler.js
-        // console.log(user.trips, "<<<user.trips")
-        userDestinations = user.getUsersDestinations(destinationsData)//instantiate Dest class in traveler.js
-        // console.log(userDestinations, "<<<userDestinations")
-        // console.log(dayjs().format("MMMM DD, YYYY"), "<<dayjs")
-        // console.log(user.trips, "user.trips line41 scripts")
-        // console.log(user.annualSpent(), "<?<< annualSpent")
-        
+        userDestinations = user.getUsersDestinations(destinationsData)//instantiate Dest class in traveler.js  
     }).then(() =>{
-        // console.log(user, "<<in 2nd .then()")
         updateDOM(user, user.trips, userDestinations)
     })
 }
@@ -49,11 +41,9 @@ const getByID = (travelers, id) => {
     })
 }
 
-
-
 const updateDOM = (userData, tripsData, destinationsData) => {
-    domUpdates.userGreeting(userData)
-    domUpdates.displayAnnualSpending(userData)
+    domUpdates.userGreeting(userData.getFirstName())
+    domUpdates.displayAnnualSpending(userData.annualSpent())
     domUpdates.displayTrips(userData, tripsData, destinationsData)
 }
 
