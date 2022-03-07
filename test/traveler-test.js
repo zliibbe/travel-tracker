@@ -89,7 +89,6 @@ describe('Traveler', function() {
 
     it('should start with an empty array of trips', () => {
         expect(traveler1.trips).to.be.an('array')
-        expect(traveler1.trips).to.be.an('array')
     });
 
     it('should be able to return just the travelers first name', () => {
