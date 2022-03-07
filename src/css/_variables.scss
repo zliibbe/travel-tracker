@@ -1,0 +1,17 @@
+$primary-background: radial-gradient(circle, rgb(78, 78, 80) 0%, rgb(247, 247, 247) 100%);
+
+$nav-background: url(https://images.unsplash.com/photo-1629196911514-cfd8d628ba26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2799&q=80);
+
+$mainFont: Lato;
+
+@mixin setDimensions($height, $width) {
+    height: $height;
+    width: $width;
+  }
+
+@mixin displayFlex($flex-direction, $justify-content, $flex-wrap) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    flex-wrap: $flex-wrap
+  }

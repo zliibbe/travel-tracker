@@ -1,0 +1,49 @@
+/* This is an example of how to import a partial scss file*/
+@import './_variables';
+* {
+    font-family: $mainFont
+}
+
+body {
+  background: $nav-background;
+  background-size: cover;
+  display:flex;
+}
+
+.user-info {
+  padding: 1em;
+}
+
+main {
+  @include displayFlex(column, flex-end, nowrap);
+  width: 70%;
+  text-align: center;
+}
+
+h1 {
+  margin: 0.5em 0;
+}
+
+.trip {
+  position: relative;
+  text-align: center;
+}
+
+.trip-img {
+  @include displayFlex(column, flex-start, nowrap);
+  @include setDimensions(10%, 115%);
+  position: relative;
+}
+
+.trip-information {
+  @include displayFlex(column, flex-start, nowrap)
+}
+
+.profile-pic {
+  max-width:100%;
+  max-height:100%;
+}
+
+.hidden {
+  display: none !important;
+}

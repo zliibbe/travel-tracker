@@ -4,13 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <title>Travel Tracker</title>
+  <!-- <link rel="icon" type="image/png" href=".git/images/favicon.png"> -->
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <section class="user-info">
+    <!-- <img src="./images/profilepic.png" alt="man looking over mountains" class="profile-pic"> -->
+    <h2 class="greeting">Welcome back, traveler!</h2>
+    <h3 class="annual-expenditure">You've spent $$$ in YEAR</h3>
+  </section>
 
+  <main>
+    <header>
+      <h1>TRAVEL TRACKER</h1>
+      <section class="trip-list" id="tripList">
+        <article class="trip">
+          <!-- trips are appended here -->
+        </article>
+        <section class="destination-preview">
+        </section>
+      </section>
+    </header>
+  </main>
+  <script src="bundle.js"></script>
 </body>
 </html>
+
