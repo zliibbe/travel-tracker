@@ -11,13 +11,18 @@ body {
 }
 
 .user-info {
+  @include setDimensions(100vh, 25vw);
+  width: 25vw;
   padding: 1em;
+  border: 3px solid orange;
 }
 
 main {
   @include displayFlex(column, flex-end, nowrap);
-  width: 70%;
+  width: 100%;
+  padding-left: 0.5em;
   text-align: center;
+  border: 3px dotted cyan
 }
 
 h1 {
@@ -27,16 +32,69 @@ h1 {
 .trip {
   position: relative;
   text-align: center;
+  @include setDimensions(40vh, 100%);
+  border: 2px solid blue;
+  // @include displayFlex(row, space-evenly, nowrap)
+}
+
+.trip-container {
+  display: flex;
+  @include setDimensions(100%, 100%)
+}
+
+.trip-heading-container {
+  @include displayFlex(row, space-between, nowrap);
+  border: 3px solid green;
+  // position: absolute;
+  left: 5px;
+  top: 25%;
+  // margin: 0.2em;
+  // padding: 0.7em;
+  background-color: #f1f1f1;
+  @include setDimensions(15vh, 25vw);
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.trip-destination, .trip-status {
+  text-size-adjust: 1em;
+  margin: 5px 0;
+  border: 2px solid purple;
+  @include displayFlex(column, space-evenly, nowrap)
+}
+
+.trip-information {
+  @include displayFlex(column, space-around, nowrap);
+  position: absolute;
+  right: 5px;
+  border: 2px solid red;
+  margin: 5%;
+  padding: 1.2em;
+  background-color: #f1f1f1;
+  @include setDimensions(20vh, 20vw);
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .trip-img {
   @include displayFlex(column, flex-start, nowrap);
-  @include setDimensions(10%, 115%);
-  position: relative;
+  @include setDimensions(40vh, 100%);
+  position: absolute;
+  object-fit: cover;
+  border: 2px dotted yellowgreen;
+  z-index: -1;
 }
 
-.trip-information {
-  @include displayFlex(column, flex-start, nowrap)
+p {
+  display: block;
+  // margin-block-start: 1em;
+  // margin-block-end: 1em;
+  padding: 0.2em;
+  // margin-inline-start: 0px;
+  // margin-inline-end: 0px;
+  margin: .1em;
 }
 
 .profile-pic {
