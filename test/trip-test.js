@@ -19,14 +19,8 @@ describe('Trip', function() {
             "name": "Ham Leadbeater",
             "travelerType": "relaxer"
             };
-        travelerTwoData = {
-            "id": 2,
-            "name": "Rachael Vaughten",
-            "travelerType": "thrill-seeker"
-            };
-
+        
         traveler1 = new Traveler(travelerOneData)
-        traveler2 = new Traveler(travelerTwoData)
 
         tripData =  {
                 "id": 71,
