@@ -2,9 +2,14 @@ import dayjs from 'dayjs'
 
 //querySelectors
 const tripList = document.querySelector('.trip-list');
-const newTripConfirmation = document.querySelector('.new-trip-confirmation')
+const allPageSections = document.querySelectorAll('section');
+
 
 const domUpdates = {
+    toggleHidden(element) {
+        element.classList.toggle("hidden");
+    },
+   
     userGreeting(firstName) {
         const greeting = document.querySelector('.greeting')
         greeting.innerText = `Welcome back, ${firstName}!`
@@ -37,13 +42,10 @@ const domUpdates = {
         </div>    
       </article>`);})
     },
-    toggleHidden(element) {
-        console.log("element % toggleHidden & newTripRequested:", element)
-        element.classList.toggle("hidden");
-    },
+    
     newTripRequested(element) {
         this.toggleHidden(element)
-        setTimeout(() =>{this.toggleHidden(element)}, 3000)
+        setTimeout(() =>{this.toggleHidden(element)}, 5000)
     }
 };
 
