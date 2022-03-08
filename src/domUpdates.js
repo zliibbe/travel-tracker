@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
 
 //querySelectors
-const tripList = document.querySelector('.trip-list')
-
+const tripList = document.querySelector('.trip-list');
+const newTripConfirmation = document.querySelector('.new-trip-confirmation')
 
 const domUpdates = {
     userGreeting(firstName) {
@@ -19,7 +19,7 @@ const domUpdates = {
         traveler.getUsersTrips(tripsData, destinationsData).forEach(trip =>{
         const place = trip.findDestination(destinationsData)
         tripList.insertAdjacentHTML('beforeend',
-        `<article class="trip">
+        `<article tabindex='0' class="trip">
         <div class="trip-container">
         <div class="trip-heading-container">
             <div class="trip-headings">    
@@ -37,6 +37,14 @@ const domUpdates = {
         </div>    
       </article>`);})
     },
+    toggleHidden(element) {
+        console.log("element % toggleHidden & newTripRequested:", element)
+        element.classList.toggle("hidden");
+    },
+    newTripRequested(element) {
+        this.toggleHidden(element)
+        setTimeout(() =>{this.toggleHidden(element)}, 3000)
+    }
 };
 
 export default domUpdates;
