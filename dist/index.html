@@ -10,18 +10,87 @@
   <title>Travel Tracker</title>
   <!-- <link rel="icon" type="image/png" href=".git/images/favicon.png"> -->
 </head>
-<body>
+<section class="booking-section">
   <section class="user-info">
     <!-- <img src="./images/profilepic.png" alt="man looking over mountains" class="profile-pic"> -->
     <h2 class="greeting">Welcome back, traveler!</h2>
+    <!-- <p class="error-msg hidden"></p> -->
     <h3 class="annual-expenditure">You've spent $$$ in YEAR</h3>
   </section>
-
+  <h2>Book A New Trip:</h2>
+  <form class="new-trip-form">
+    <label for="destination-list-input">Destination:</label>
+    <select id="destinationList" name="destination-list-input" class="destination-input" required>
+      <option value="0" selected disabled>Where are you off to?</option>
+      <option value="1">Lima, Peru</option>
+      <option value="2">Stockholm, Sweden</option>
+      <option value="3">Sydney, Austrailia</option>
+      <option value="4">Cartagena, Colombia</option>
+      <option value="5">Madrid, Spain</option>
+      <option value="6">Jakarta, Indonesia</option>
+      <option value="7">Paris, France</option>
+      <option value="8">Tokyo, Japan</option>
+      <option value="9">Amsterdam, Netherlands</option>
+      <option value="10">Toronto, Canada</option>
+      <option value="11">Mikonos, Greece</option>
+      <option value="12">Wellington, New Zealand</option>
+      <option value="13">St. Petersburg, Russia</option>
+      <option value="14">Marrakesh, Morocco</option>
+      <option value="15">Manila, Philippines</option>
+      <option value="16">Bangkok, Thailand</option>
+      <option value="17">Jaipur, India</option>
+      <option value="18">Cape Town, South Africa</option>
+      <option value="19">Quito, Ecuador</option>
+      <option value="20">Miami, Florida</option>
+      <option value="21">Tulum, Mexico</option>
+      <option value="22">Rome, Italy</option>
+      <option value="23">Copenhagen, Denmark</option>
+      <option value="24">Vilnius, Lithuania</option>
+      <option value="25">New York, New York</option>
+      <option value="26">London, England</option>
+      <option value="27">San Francisco, California</option>
+      <option value="28">San Juan, Puerto Rico</option>
+      <option value="29">Willemstad, Curaçao</option>
+      <option value="30">Antananarivo, Madagascar</option>
+      <option value="31">Colombo, Sri Lanka</option>
+      <option value="32">Kathmandu, Nepal</option>
+      <option value="33">Brussels, Belgium</option>
+      <option value="34">Seoul, South Korea</option>
+      <option value="35">Anchorage, Alaska</option>
+      <option value="36">Reykjavík, Iceland</option>
+      <option value="37">Frankfurt, Germany</option>
+      <option value="38">Helsinki, Finland</option>
+      <option value="39">Porto, Portugal</option>
+      <option value="40">La Isla Tortuga, Costa Rica</option>
+      <option value="41">Montego Bay, Jamaica</option>
+      <option value="42">Santo Domingo, Dominican Republic</option>
+      <option value="43">Nassau, The Bahamas</option>
+      <option value="44">Caye Caulker, Belize</option>
+      <option value="45">Calgary, Canada</option>
+      <option value="46">Victoria, Seychelles</option>
+      <option value="47">Zürich, Switzerland</option>
+      <option value="48">Dar es Salaam, Tanzania</option>
+      <option value="49">Castries, St Lucia</option>
+      <option value="50">Hobart, Tasmania</option>
+    </select>
+    <label for="date">Start Date:</label>
+      <input type="date" name="date" id="date" class="date-input" required>
+    <label for="numberOfDays">Number of Days:</label>
+      <input type="number" name="number-of-days" id="numberOfDays" class="number-of-days-input" min="1" max ="30" required>
+    <label for="numberOfTravelers">Number of Travelers:</label>
+      <input type="number" name="number-of-travelers" id="numberOfTravelers" class="number-of-travelers-input" min="1" max="25" required>
+   
+      <label for="submitNewTripBtn">Request New Trip:</label>
+      <input type="submit" name="submitBtn" id="submitNewTripBtn"> 
+  </form>
+  <div class="error-msg"></div>
+  <div class="new-trip-confirmation hidden">Your trip is under review! See trips section for details.</div>
+</section>
   <main>
     <header>
       <h1>TRAVEL TRACKER</h1>
       <section class="trip-list" id="tripList">
-          <!-- trips are appended here -->
+          <!-- trips are append here -->
         <section class="destination-preview">
         </section>
       </section>
