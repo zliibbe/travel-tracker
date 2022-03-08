@@ -10,7 +10,21 @@
   <title>Travel Tracker</title>
   <!-- <link rel="icon" type="image/png" href=".git/images/favicon.png"> -->
 </head>
-<section class="booking-section">
+<section class="login-page">
+  <!-- create login page, hide & show on btn click 1030 -->
+  
+  <div class="login-container">
+   <h2>Sign In:</h2>
+      <form class="login-form">
+        <label for="username">Username:</label>
+          <input id="username" type="text" placeholder="enter username" required>
+        <label for="password">Password:</label>
+          <input id="password" type="password" placeholder="enter password" required>
+        <input type="submit" name="submit" id="loginBtn"> 
+      </form>
+  </div>
+</section>
+<section class="booking-section hidden">
   <section class="user-info">
     <!-- <img src="./images/profilepic.png" alt="man looking over mountains" class="profile-pic"> -->
     <h2 class="greeting">Welcome back, traveler!</h2>
@@ -86,7 +100,7 @@
   <div class="error-msg"></div>
   <div class="new-trip-confirmation hidden">Your trip is under review! See trips section for details.</div>
 </section>
-  <main>
+  <main class="trip-section hidden">
     <header>
       <h1>TRAVEL TRACKER</h1>
       <section class="trip-list" id="tripList">
