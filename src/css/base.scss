@@ -10,14 +10,42 @@ body {
   display:flex;
 }
 
+.booking-section {
+  text-align: center;
+}
+
 .user-info {
+  @include setDimensions(20vh, 25vw);
   padding: 1em;
+  margin: 2em;
+  // border: 3px solid orange;
+}
+
+.new-trip-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: center;
+}
+
+input, .destination-input {
+  @include setDimensions(2em, 75%);
+}
+
+.submit-new-trip-btn {
+  display: flex;
+  align-content: flex-end;
+  justify-content: center;
+  width: 8em;
+  margin: 1em 1em 1em 75%;
 }
 
 main {
   @include displayFlex(column, flex-end, nowrap);
-  width: 70%;
+  width: 100%;
+  padding-left: 0.5em;
   text-align: center;
+  // border: 3px dotted cyan
 }
 
 h1 {
@@ -27,23 +55,79 @@ h1 {
 .trip {
   position: relative;
   text-align: center;
+  @include setDimensions(40vh, 100%);
+  // border: 2px solid blue;
+  // @include displayFlex(row, space-evenly, nowrap)
+}
+
+.trip-container {
+  display: flex;
+  @include setDimensions(100%, 100%);
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.trip-heading-container {
+  @include displayFlex(row, space-between, nowrap);
+  // border: 3px solid green;
+  // position: absolute;
+  left: 5px;
+  top: 25%;
+  margin: 5%;
+  background-color: #f1f1f1;
+  @include setDimensions(15vh, 25vw);
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+  margin: 2em;
+}
+
+.trip-destination, .trip-status {
+  text-size-adjust: 1em;
+  margin: 0.7em;
+  // border: 2px solid purple;
+  @include displayFlex(column, space-evenly, nowrap)
+}
+
+.trip-information {
+  @include displayFlex(column, space-around, nowrap);
+  position: absolute;
+  right: 5px;
+  // border: 2px solid red;
+  margin: 5%;
+  padding: 1.2em;
+  background-color: #f1f1f1;
+  @include setDimensions(20vh, 20vw);
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .trip-img {
   @include displayFlex(column, flex-start, nowrap);
-  @include setDimensions(10%, 115%);
-  position: relative;
+  @include setDimensions(40vh, 100%);
+  position: absolute;
+  object-fit: cover;
+  // border: 2px dotted yellowgreen;
+  z-index: -1;
+  border-radius: 15px;
 }
 
-.trip-information {
-  @include displayFlex(column, flex-start, nowrap)
+p {
+  display: block;
+  // margin-block-start: 1em;
+  // margin-block-end: 1em;
+  padding: 0.2em;
+  // margin-inline-start: 0px;
+  // margin-inline-end: 0px;
+  margin: .1em;
 }
 
 .profile-pic {
-  max-width:100%;
-  max-height:100%;
+  width:10%;
+  height:10%;
 }
 
 .hidden {
   display: none !important;
-}
+} 
