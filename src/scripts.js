@@ -23,17 +23,40 @@ const tripNumOfTravelers = document.querySelector('.number-of-travelers-input');
 const tripDestination = document.querySelector('.destination-input');
 const newTripForm = document.querySelector('.new-trip-form');
 const newTripConfirmation = document.querySelector('.new-trip-confirmation');
+const loginSubmit = document.querySelector('.login-form');
+const loginSection = document.querySelector('.login-page');
+const bookSection = document.querySelector('.booking-section');
+const tripSection = document.querySelector('.trip-section');
+const userName = document.querySelector('#username');
+const password = document.querySelector('#password');
 
 // function declaration
-const getAllData = () => {
-    return Promise.all([fetchDataFor(`travelers`), 
+const hideLogin = () => {
+    domUpdates.toggleHidden(loginSection)
+    domUpdates.toggleHidden(bookSection)
+    domUpdates.toggleHidden(tripSection)
+}
+
+const getLoginInfo = (event) => {
+    event.preventDefault()
+    const traveler = userName.value.slice(0,8);
+    const travelerID = userName.value.slice(8,10);
+    if (traveler === 'traveler' && travelerID > 0 && travelerID < 51 && password.value === 'traveler'){
+        hideLogin()
+        getAllData(travelerID)
+    }
+
+}
+
+const getAllData = (id) => {
+    return Promise.all([fetchDataFor('travelers'), 
                         fetchDataFor('destinations'), 
                         fetchDataFor('trips')])
     .then(data => {
         travelersData = data[0].travelers;
         destinationsData = data[1].destinations;
         tripsData = data[2].trips;
-        user = new Traveler(getByID(travelersData, '38'))
+        user = new Traveler(getByID(travelersData, id))
         user.trips = user.getUsersTrips(tripsData, destinationsData)//instantiate Trip class in traveler.js
         userDestinations = user.getUsersDestinations(destinationsData)//instantiate Dest class in traveler.js  
     }).then(() =>{
@@ -65,8 +88,8 @@ const postNewTrip = (e) => {
     user.trips.push(newTripRequest);//push trip to user's trips array
     domUpdates.newTripRequested(newTripConfirmation)//display post success & then hide this msg
     Promise.all([fetchDataFor(`travelers`), 
-                        fetchDataFor('destinations'), 
-                        fetchDataFor('trips')])
+                 fetchDataFor('destinations'), 
+                 fetchDataFor('trips')])
     .then(data => {
         travelersData = data[0].travelers;
         destinationsData = data[1].destinations;
@@ -86,5 +109,11 @@ const updateDOM = (userData, tripsData, destinationsData) => {
 }
 
 //eventListeners 
-window.addEventListener('load', getAllData());
+// window.addEventListener('load', getAllData());
+// window.addEventListener('load')
 newTripForm.addEventListener('submit', postNewTrip);
+loginSubmit.addEventListener('submit', getLoginInfo);
+
+// loginSubmit.addEventListener('submit', (e) => {hideLogin(e)});
+
+
