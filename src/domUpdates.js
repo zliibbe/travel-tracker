@@ -2,8 +2,7 @@ import dayjs from 'dayjs'
 
 //querySelectors
 const tripList = document.querySelector('.trip-list');
-const allPageSections = document.querySelectorAll('section');
-
+const loginErrorMessage = document.querySelector('.login-error-message');
 
 const domUpdates = {
     toggleHidden(element) {
@@ -40,12 +39,17 @@ const domUpdates = {
         </div>
         <img class="trip-img" src=${place.image} alt=${place.alt}>
         </div>    
-      </article>`);})
+        </article>`);
+      })
     },
     
     newTripRequested(element) {
         this.toggleHidden(element)
         setTimeout(() =>{this.toggleHidden(element)}, 5000)
+    },
+
+    displayLoginError() {
+        this.toggleHidden(loginErrorMessage)
     }
 };
 
