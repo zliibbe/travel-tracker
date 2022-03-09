@@ -1,13 +1,7 @@
 import './css/base.scss';
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/profilepic'
-// import './images/favicon'
 import {fetchDataFor, postData} from './apiCalls'
 import Traveler from './traveler'
-import Trip from './trip'
-import Destination from './destination';
 import domUpdates from './domUpdates';
-import dayjs from 'dayjs'
 
 //variable initiation
 let user
@@ -44,8 +38,9 @@ const getLoginInfo = (event) => {
     if (traveler === 'traveler' && travelerID > 0 && travelerID < 51 && password.value === 'traveler'){
         hideLogin()
         getAllData(travelerID)
+    } else {
+        domUpdates.displayLoginError()
     }
-
 }
 
 const getAllData = (id) => {
@@ -57,8 +52,8 @@ const getAllData = (id) => {
         destinationsData = data[1].destinations;
         tripsData = data[2].trips;
         user = new Traveler(getByID(travelersData, id))
-        user.trips = user.getUsersTrips(tripsData, destinationsData)//instantiate Trip class in traveler.js
-        userDestinations = user.getUsersDestinations(destinationsData)//instantiate Dest class in traveler.js  
+        user.trips = user.getUsersTrips(tripsData, destinationsData)
+        userDestinations = user.getUsersDestinations(destinationsData)
     }).then(() =>{
         updateDOM(user, user.trips, userDestinations)
     })
@@ -84,9 +79,9 @@ const postNewTrip = (e) => {
         status: 'pending', 
         suggestedActivities: [],
     }
-    postData('trips', newTripRequest);//POST trip to server
-    user.trips.push(newTripRequest);//push trip to user's trips array
-    domUpdates.newTripRequested(newTripConfirmation)//display post success & then hide this msg
+    postData('trips', newTripRequest);
+    user.trips.push(newTripRequest);
+    domUpdates.newTripRequested(newTripConfirmation);
     Promise.all([fetchDataFor(`travelers`), 
                  fetchDataFor('destinations'), 
                  fetchDataFor('trips')])
@@ -97,7 +92,7 @@ const postNewTrip = (e) => {
         user.trips = user.getUsersTrips(tripsData, destinationsData)
         userDestinations = user.getUsersDestinations(destinationsData)
     }).then(() =>{
-        updateDOM(user, user.trips, userDestinations)//redisplay new info to DOM
+        updateDOM(user, user.trips, userDestinations)
     })
     e.target.reset();
 }
@@ -109,11 +104,5 @@ const updateDOM = (userData, tripsData, destinationsData) => {
 }
 
 //eventListeners 
-// window.addEventListener('load', getAllData());
-// window.addEventListener('load')
 newTripForm.addEventListener('submit', postNewTrip);
 loginSubmit.addEventListener('submit', getLoginInfo);
-
-// loginSubmit.addEventListener('submit', (e) => {hideLogin(e)});
-
-
