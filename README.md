@@ -11,6 +11,7 @@ This site is a project built during Mod 2 of [Turing School of Software & Design
 ### Wins
 - Implementing and using [Day.js](https://day.js.org/)
 - Implementing code review and pull requests
+- Accessibiliy, tabbale by keyboard
 ### Challenges
 - Post request
 - Managing project board digitally
