@@ -8,11 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <title>Travel Tracker</title>
-  <!-- <link rel="icon" type="image/png" href=".git/images/favicon.png"> -->
 </head>
 <section class="login-page">
-  <!-- create login page, hide & show on btn click 1030 -->
-  
   <div class="login-container">
    <h2>Sign In:</h2>
       <form class="login-form">
@@ -21,14 +18,13 @@
         <label for="password">Password:</label>
           <input id="password" type="password" placeholder="enter password" required>
         <input type="submit" name="submit" id="loginBtn"> 
+        <div class="login-error-message hidden">Incorrect username or password.</div>
       </form>
   </div>
 </section>
 <section class="booking-section hidden">
   <section class="user-info">
-    <!-- <img src="./images/profilepic.png" alt="man looking over mountains" class="profile-pic"> -->
     <h2 class="greeting">Welcome back, traveler!</h2>
-    <!-- <p class="error-msg hidden"></p> -->
     <h3 class="annual-expenditure">You've spent $$$ in YEAR</h3>
   </section>
   <h2>Book A New Trip:</h2>
@@ -93,18 +89,17 @@
       <input type="number" name="number-of-days" id="numberOfDays" class="number-of-days-input" min="1" max ="30" required>
     <label for="numberOfTravelers">Number of Travelers:</label>
       <input type="number" name="number-of-travelers" id="numberOfTravelers" class="number-of-travelers-input" min="1" max="25" required>
-   
       <label for="submitNewTripBtn">Request New Trip:</label>
       <input type="submit" name="submitBtn" id="submitNewTripBtn"> 
+      <div class="error-message hidden"></div>
   </form>
-  <div class="error-msg"></div>
   <div class="new-trip-confirmation hidden">Your trip is under review! See trips section for details.</div>
 </section>
   <main class="trip-section hidden">
     <header>
       <h1>TRAVEL TRACKER</h1>
       <section class="trip-list" id="tripList">
-          <!-- trips are append here -->
+          <!-- trips append here -->
         <section class="destination-preview">
         </section>
       </section>
