@@ -83,9 +83,13 @@ h1 {
   @include displayFlex(column, center, nowrap);
 }
 
-.date-input, .number-of-days-input,
-.number-of-travelers-input, .destination-input {
+.date-input, .number-of-days-input, .destination-input {
   margin: 0 0 0 3em;
+}
+
+
+.number-of-travelers-input {
+  margin: 0 0 3em 3em;
 }
 
 .trip {
