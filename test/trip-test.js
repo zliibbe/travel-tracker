@@ -74,8 +74,7 @@ describe('Trip', function() {
 
     })
 
-    it.skip('should be able to calculate the cost of a trip with 10% fee added')
+    it.skip('should be able to calculate the cost of a trip with 10% fee added', () => {
 
-   
-
+    })
 })
