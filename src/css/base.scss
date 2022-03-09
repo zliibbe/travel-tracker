@@ -4,6 +4,35 @@
     font-family: $mainFont
 }
 
+.login-page {
+  display: flex;
+  margin: 5%;
+  background-color: #f1f1f1;
+  @include setDimensions(30vh, 35vw);
+  padding: 5%;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.signin {
+  margin: 0 0 1em 0;
+}
+
+#username, #password {
+  margin: 5% 0 5% 0;
+}
+
+#loginBtn {
+  width: 75%;
+  margin-right: 20%;
+}
+
+.login-container {
+  @include displayFlex(column, center, nowrap);
+  margin: 5em;
+  @include setDimensions(15vh, 25vw);
+}
+
 body {
   background: $nav-background;
   background-size: cover;
@@ -18,7 +47,6 @@ body {
   @include setDimensions(20vh, 25vw);
   padding: 1em;
   margin: 2em;
-  // border: 3px solid orange;
 }
 
 .new-trip-form {
@@ -32,12 +60,12 @@ input, .destination-input {
   @include setDimensions(2em, 75%);
 }
 
-.submit-new-trip-btn {
+#submitNewTripBtn {
   display: flex;
   align-content: flex-end;
   justify-content: center;
-  width: 8em;
-  margin: 1em 1em 1em 75%;
+  width: 10em;
+  margin: 1em 0 1em 33%;
 }
 
 main {
@@ -45,19 +73,29 @@ main {
   width: 100%;
   padding-left: 0.5em;
   text-align: center;
-  // border: 3px dotted cyan
 }
 
 h1 {
   margin: 0.5em 0;
 }
 
+.new-trip-form {
+  @include displayFlex(column, center, nowrap);
+}
+
+.date-input, .number-of-days-input, .destination-input {
+  margin: 0 0 0 3em;
+}
+
+
+.number-of-travelers-input {
+  margin: 0 0 3em 3em;
+}
+
 .trip {
   position: relative;
   text-align: center;
   @include setDimensions(40vh, 100%);
-  // border: 2px solid blue;
-  // @include displayFlex(row, space-evenly, nowrap)
 }
 
 .trip-container {
@@ -69,8 +107,6 @@ h1 {
 
 .trip-heading-container {
   @include displayFlex(row, space-between, nowrap);
-  // border: 3px solid green;
-  // position: absolute;
   left: 5px;
   top: 25%;
   margin: 5%;
@@ -85,15 +121,12 @@ h1 {
 .trip-destination, .trip-status {
   text-size-adjust: 1em;
   margin: 0.7em;
-  // border: 2px solid purple;
-  @include displayFlex(column, space-evenly, nowrap)
 }
 
 .trip-information {
   @include displayFlex(column, space-around, nowrap);
   position: absolute;
   right: 5px;
-  // border: 2px solid red;
   margin: 5%;
   padding: 1.2em;
   background-color: #f1f1f1;
@@ -108,18 +141,13 @@ h1 {
   @include setDimensions(40vh, 100%);
   position: absolute;
   object-fit: cover;
-  // border: 2px dotted yellowgreen;
   z-index: -1;
   border-radius: 15px;
 }
 
 p {
   display: block;
-  // margin-block-start: 1em;
-  // margin-block-end: 1em;
   padding: 0.2em;
-  // margin-inline-start: 0px;
-  // margin-inline-end: 0px;
   margin: .1em;
 }
 
